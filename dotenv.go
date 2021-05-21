@@ -16,7 +16,7 @@ func Load() {
 	lines := strings.Split(string(bytes), "\n")
 
 	for i, line := range lines {
-		if len(line) > 0 && !strings.HasPrefix(line, "#") {
+		if len(strings.TrimSpace(line)) > 0 && !strings.HasPrefix(line, "#") {
 			arr := strings.Split(line, "=")
 			if len(arr) != 2 {
 				log.Fatalf("invalid format at line %v\n%v", i+1, line)
